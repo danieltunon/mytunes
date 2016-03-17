@@ -9,10 +9,10 @@ var SongQueue = Songs.extend({
       }
     }, this);
 
-    this.on('ended', function(song) {
+    this.on('dequeue ended', function(song) {
       this.removeFirst();
     }, this);
-
+    
   },
 
   playFirst: function() {
