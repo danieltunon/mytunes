@@ -8,8 +8,8 @@ var SongQueue = Songs.extend({
       }
     });
 
-    this.on('ended', function() {
-      this.dequeue();
+    this.on('ended', function(song) {
+      this.removeFirst();
     }, this);
   },
 
@@ -17,9 +17,14 @@ var SongQueue = Songs.extend({
     this.at(0).play();
   },
 
-  dequeue: function() {
+  removeFirst: function() {
+    // this.remove(song);
     this.shift();
-    this.playFirst();
+    // check song left
+    if (this.length > 0) {
+      // if there is song left, playFirst
+      this.playFirst();
+    }
   }
 
 });

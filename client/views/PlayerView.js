@@ -19,8 +19,7 @@ var PlayerView = Backbone.View.extend({
 
   events: {
     'ended': function() {
-      console.log('fired');
-      this.model.dequeue();
+      this.model.ended();
     }
   }
 
